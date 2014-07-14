@@ -1,0 +1,7 @@
+# playbook.yml
+---
+- hosts: all
+  sudo: yes
+  roles:
+    - common
+    - php5-fpm

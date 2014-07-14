@@ -1,0 +1,13 @@
+---
+
+# default php.ini values for a production server
+post_max_size: "post_max_size = 8M"
+upload_max_filesize: "upload_max_filesize = 2M"
+memory_limit: "memory_limit = 256M"
+display_errors: "display_errors = Off"
+error_reporting: "error_reporting = E_ALL & ~E_DEPRECATED"
+display_startup_errors: "display_startup_errors = Off"
+html_errors: "html_errors = Off"
+track_errors: "track_errors = Off"
+session_bug_compat_warn: "session.bug_compat_warn = Off"
+apc_status: ";extension=apc.so"

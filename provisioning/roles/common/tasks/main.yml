@@ -1,0 +1,3 @@
+- name: update the apt cache
+  apt:
+    update_cache: yes
