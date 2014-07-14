@@ -10,7 +10,7 @@
   notify:
   - restart apache
 
-- name: 4. Apache | Enable our new site
+- name: 4. Apache | Enable mod rewrite
   action: command a2enmod rewrite
 
 - name: 5. Apache | Enable our new site
