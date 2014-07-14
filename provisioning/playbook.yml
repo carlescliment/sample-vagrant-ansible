@@ -6,3 +6,4 @@
     - common
     - database
     - php5-fpm
+    - webserver

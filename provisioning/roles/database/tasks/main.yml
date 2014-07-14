@@ -1,8 +1,8 @@
 ---
-- name: 1. install MySQL server
+- name: Install MySQL server
   apt: name=mysql-server state=present
 
-- name: 1. install MySQL client
+- name: Install MySQL client
   apt: name=mysql-client state=present
 
 - name: Create Mysql configuration file

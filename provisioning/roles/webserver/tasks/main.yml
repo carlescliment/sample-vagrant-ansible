@@ -1,0 +1,23 @@
+---
+- name: 1. install Apache
+  apt: name=apache2 state=present
+
+- name: 2. install PHP module for Apache
+  apt: name=libapache2-mod-php5 state=present
+
+- name: 3. write the apache config file
+  template: src=httpd.j2 dest=/etc/apache2/sites-available/my-project
+  notify:
+  - restart apache
+
+- name: 4. Apache | Enable our new site
+  action: command a2enmod rewrite
+
+- name: 5. Apache | Enable our new site
+  action: command a2ensite my-project
+
+- name: 6. Apache | Disable default
+  action: command a2dissite default
+
+- name: 7. start Apache
+  service: name=apache2 state=running enabled=yes
