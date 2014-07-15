@@ -1,0 +1,9 @@
+commit e4213d374cf709fac346535d63f65d550d881e82
+tree 13f1bec0bf3676a23efe81b092b026fcebf23d7e
+parent 1a6c32b4d2049820a94bcee2f2b966b71c59a3b8
+author Carles Climent <carlescliment@hotmail.com> 1405423088 +0200
+committer Carles Climent <carlescliment@hotmail.com> 1405423088 +0200
+
+    Added failing test
+
+:100644 100644 901814119025ff5933d0e42dc10c892407a5085b 1261de17459293fa5bcf4281985c5775bed5e7cf M	src/tests/SampleTest.php

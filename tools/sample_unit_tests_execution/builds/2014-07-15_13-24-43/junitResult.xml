@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<result>
+  <suites>
+    <suite>
+      <file>/var/ci/10/tests10.xml</file>
+      <name>SampleTest</name>
+      <duration>8.7800005E-4</duration>
+      <cases>
+        <case>
+          <duration>5.98E-4</duration>
+          <className>SampleTest</className>
+          <testName>itPasses</testName>
+          <skipped>false</skipped>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>2.8E-4</duration>
+          <className>SampleTest</className>
+          <testName>thisOneFails</testName>
+          <skipped>false</skipped>
+          <errorStackTrace>SampleTest::thisOneFails
+Failed asserting that false is true.
+
+/var/ci/10/src/tests/SampleTest.php:21
+</errorStackTrace>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>8.7800005E-4</duration>
+  <keepLongStdio>false</keepLongStdio>
+</result>

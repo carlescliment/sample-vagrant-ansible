@@ -1,0 +1,117 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/ci/10
+Cloning the remote Git repository
+Cloning repository https://github.com/carlescliment/sample-vagrant-ansible.git
+ > git init /var/ci/10
+Fetching upstream changes from https://github.com/carlescliment/sample-vagrant-ansible.git
+ > git --version
+ > git fetch --tags --progress https://github.com/carlescliment/sample-vagrant-ansible.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/carlescliment/sample-vagrant-ansible.git
+ > git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/carlescliment/sample-vagrant-ansible.git
+Fetching upstream changes from https://github.com/carlescliment/sample-vagrant-ansible.git
+ > git fetch --tags --progress https://github.com/carlescliment/sample-vagrant-ansible.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse origin/master^{commit}
+Checking out Revision e4213d374cf709fac346535d63f65d550d881e82 (origin/master)
+ > git config core.sparsecheckout
+ > git checkout -f e4213d374cf709fac346535d63f65d550d881e82
+ > git rev-list e4213d374cf709fac346535d63f65d550d881e82
+[10] $ /bin/sh -xe /tmp/hudson3910610701273037873.sh
++ wget http://getcomposer.org/composer.phar
+--2014-07-15 13:24:49--  http://getcomposer.org/composer.phar
+Resolving getcomposer.org (getcomposer.org)... 87.98.253.108
+Connecting to getcomposer.org (getcomposer.org)|87.98.253.108|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 965195 (943K) [application/octet-stream]
+Saving to: ‘composer.phar’
+
+     0K .......... .......... .......... .......... ..........  5%  290K 3s
+    50K .......... .......... .......... .......... .......... 10%  494K 2s
+   100K .......... .......... .......... .......... .......... 15%  452K 2s
+   150K .......... .......... .......... .......... .......... 21%  553K 2s
+   200K .......... .......... .......... .......... .......... 26%  591K 2s
+   250K .......... .......... .......... .......... .......... 31%  521K 1s
+   300K .......... .......... .......... .......... .......... 37%  581K 1s
+   350K .......... .......... .......... .......... .......... 42%  580K 1s
+   400K .......... .......... .......... .......... .......... 47%  675K 1s
+   450K .......... .......... .......... .......... .......... 53%  578K 1s
+   500K .......... .......... .......... .......... .......... 58%  751K 1s
+   550K .......... .......... .......... .......... .......... 63%  583K 1s
+   600K .......... .......... .......... .......... .......... 68%  475K 1s
+   650K .......... .......... .......... .......... .......... 74%  677K 0s
+   700K .......... .......... .......... .......... .......... 79%  903K 0s
+   750K .......... .......... .......... .......... .......... 84%  672K 0s
+   800K .......... .......... .......... .......... .......... 90%  668K 0s
+   850K .......... .......... .......... .......... .......... 95%  969K 0s
+   900K .......... .......... .......... .......... ..        100%  786K=1.6s
+
+2014-07-15 13:24:50 (578 KB/s) - ‘composer.phar’ saved [965195/965195]
+
++ php composer.phar install
+Loading composer repositories with package information
+Installing dependencies (including require-dev) from lock file
+  - Installing phpunit/php-token-stream (1.2.2)
+    Loading from cache
+
+  - Installing symfony/yaml (v2.5.1)
+    Loading from cache
+
+  - Installing sebastian/version (1.0.3)
+    Loading from cache
+
+  - Installing sebastian/exporter (1.0.1)
+    Loading from cache
+
+  - Installing sebastian/environment (1.0.0)
+    Loading from cache
+
+  - Installing sebastian/diff (1.1.0)
+    Loading from cache
+
+  - Installing sebastian/comparator (1.0.0)
+    Loading from cache
+
+  - Installing phpunit/php-text-template (1.2.0)
+    Loading from cache
+
+  - Installing phpunit/phpunit-mock-objects (2.1.5)
+    Loading from cache
+
+  - Installing phpunit/php-timer (1.0.5)
+    Loading from cache
+
+  - Installing phpunit/php-file-iterator (1.3.4)
+    Loading from cache
+
+  - Installing phpunit/php-code-coverage (2.0.9)
+    Loading from cache
+
+  - Installing phpunit/phpunit (4.1.3)
+    Loading from cache
+
+phpunit/php-code-coverage suggests installing ext-xdebug (>=2.2.1)
+phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
+Generating autoload files
+[10] $ /bin/sh -xe /tmp/hudson3696545278313520651.sh
++ php vendor/bin/phpunit --log-junit tests10.xml
+PHPUnit 4.1.3 by Sebastian Bergmann.
+
+Configuration read from /var/ci/10/phpunit.xml.dist
+
+.[41;37mF[0m
+
+Time: 25 ms, Memory: 3.50Mb
+
+There was 1 failure:
+
+1) SampleTest::thisOneFails
+Failed asserting that false is true.
+
+/var/ci/10/src/tests/SampleTest.php:21
+[37;41m                                     [0m
+[37;41mFAILURES!                            [0m
+[37;41mTests: 2, Assertions: 2, Failures: 1.[0m
+Build step 'Execute shell' marked build as failure
+Recording test results
+Sending e-mails to: carlescliment@gmail.com
+Finished: FAILURE
