@@ -76,4 +76,22 @@ class DemoControllerTest extends WebTestCase
     }
 
 
+    public function testServiceStubbing()
+    {
+        $filmsApi = $this->getMock('Acme\DemoBundle\Domain\FilmsApi', array('getFilms'));
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW' => 'adminpass',
+            ));
+        $container = $client->getKernel()->getContainer();
+        $container->set('films_api', $filmsApi);
+        $filmsApi->expects($this->any())
+            ->method('getFilms')
+            ->will($this->returnValue(array('Lo que el viento se llevó', 'Con la muerte en los talones')));
+
+        $crawler = $client->request('GET', '/demo/secured/films');
+
+        $this->assertCount(1, $crawler->filter('html:contains("Lo que el viento se llevó")'));
+        $this->assertCount(1, $crawler->filter('html:contains("Con la muerte en los talones")'));
+    }
 }

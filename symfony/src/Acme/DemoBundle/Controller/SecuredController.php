@@ -62,6 +62,20 @@ class SecuredController extends Controller
         return $this->redirect($this->generateUrl('_demo_secured_hello', array('name' => 'Sample')));
     }
 
+    /**
+     * @Route("/films", name="_demo_secured_films")
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @Template()
+     */
+    public function filmsAction(Request $request)
+    {
+
+        $filmsApi = $this->get('films_api');
+        return array(
+            'films' => $filmsApi->getFilms()
+        );
+    }
+
 
     /**
      * @Route("/hello", defaults={"name"="World"}),
