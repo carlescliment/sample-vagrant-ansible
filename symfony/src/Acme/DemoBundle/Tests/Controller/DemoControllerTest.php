@@ -42,4 +42,17 @@ class DemoControllerTest extends WebTestCase
         // check that the page is the right one
         $this->assertCount(1, $crawler->filter('h1.title:contains("secured for Admins only!")'));
     }
+
+
+    public function testSecureSectionUsingHttp()
+    {
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW' => 'adminpass',
+            ));
+
+        $crawler = $client->request('GET', '/demo/secured/hello/World');
+
+        $this->assertCount(1, $crawler->filter('h1.title:contains("Hello World!")'));
+    }
 }
