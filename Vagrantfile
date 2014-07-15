@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "dev.my-project.com"
 
-  config.vm.synced_folder "src", "/var/www/vhosts/my-project"
+  config.vm.synced_folder "symfony", "/var/www/vhosts/my-project", group: 'www-data', user: 'www-data', mount_options: ["dmode=775", "fmode=664"]
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
