@@ -48,6 +48,21 @@ class SecuredController extends Controller
         // The security layer will intercept this request
     }
 
+
+    /**
+     * @Route("/tweet", name="_demo_secured_tweet")
+     * @Security("is_granted('ROLE_ADMIN')")
+     */
+    public function tweetAction(Request $request)
+    {
+
+        $tweetContent = $request->get('content');
+        $twitter = $this->get('twitter');
+        $twitter->tweet($tweetContent);
+        return $this->redirect($this->generateUrl('_demo_secured_hello', array('name' => 'Sample')));
+    }
+
+
     /**
      * @Route("/hello", defaults={"name"="World"}),
      * @Route("/hello/{name}", name="_demo_secured_hello")
@@ -67,4 +82,6 @@ class SecuredController extends Controller
     {
         return array('name' => $name);
     }
+
+
 }

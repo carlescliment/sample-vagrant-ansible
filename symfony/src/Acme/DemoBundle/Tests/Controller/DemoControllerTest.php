@@ -55,4 +55,25 @@ class DemoControllerTest extends WebTestCase
 
         $this->assertCount(1, $crawler->filter('h1.title:contains("Hello World!")'));
     }
+
+
+    public function testServiceMocking()
+    {
+        $twitter = $this->getMock('Acme\DemoBundle\Domain\Twitter', array('tweet'));
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW' => 'adminpass',
+            ));
+        $theTweetText = 'This is the text to be tweeted';
+        $container = $client->getKernel()->getContainer();
+        $container->set('twitter', $twitter);
+
+        $twitter->expects($this->once())
+            ->method('tweet')
+            ->with($theTweetText);
+
+        $client->request('GET', '/demo/secured/tweet', array('content' => $theTweetText));
+    }
+
+
 }
