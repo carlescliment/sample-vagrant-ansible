@@ -1,0 +1,16 @@
+{
+    "name": "carlescliment/sample-vagrant-ansible",
+    "description": "A sample project to demonstrate jenkins and vagrant",
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "authors": [
+        {
+            "name": "Carles Climent",
+            "email": "carlescliment@hotmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
